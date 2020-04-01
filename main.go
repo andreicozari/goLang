@@ -20,10 +20,12 @@ func index(writer http.ResponseWriter, request *http.Request) {
 }
 
 func port() string {
-	port := os.Getenv("GO_SERVICE_PORT")
+	port := ":" + os.Getenv("GO_SERVICE_PORT")
 
 	if len(port) == 0 {
 		port = ":8080"
 	}
+
+	fmt.Printf("The app is running on http://localhost:" + port)
 	return port
 }
