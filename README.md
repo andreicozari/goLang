@@ -6,3 +6,6 @@
     
     On windows:
     set GO_SERVICE_PORT=9090
+    
+    
+# go build || go run
