@@ -10,7 +10,7 @@ func main() {
 
 func findMax() int {
 
-	// ann array with implicit size of 6
+	//  A slice  |         an array with implicit size of 6
 	nums := []int{11, 123, 0, 123, 11, 6}
 
 	fmt.Println("The length of array is ", len(nums))
@@ -27,7 +27,7 @@ func findMax() int {
 		}
 	}
 
-	fmt.Println(count)
+	fmt.Println("Number of steps: ", count)
 
 	return max
 }
