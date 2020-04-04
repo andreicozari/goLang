@@ -9,6 +9,10 @@ func main() {
 	// p == []byte{2, 3, 5, 7, 11, 13}
 
 	fmt.Println(p)
+
+	p = append(p, 17)
+	fmt.Println(p)
+
 }
 
 func AppendByte(slice []byte, data ...byte) []byte {
