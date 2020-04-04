@@ -4,10 +4,18 @@ import (
 	"fmt"
 )
 
+// Test same memory address / location of arrays:
+// printf %p &
+
 func main() {
 	intSlices()
 	fmt.Println("\n")
 	stringSlices()
+
+	s := []string{"aLiteral"}
+	sPointer := s[:]
+	fmt.Printf("%v %v %p %p", sPointer, s, &sPointer, &s)
+
 }
 
 func stringSlices() {

@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 	var a [2]string
@@ -9,6 +11,16 @@ func main() {
 	fmt.Println(a[0], a[1])
 	fmt.Println(a)
 
-	primes := [6]int{2, 3, 5, 7, 11, 13}
+	primes := []int{2, 3, 5, 7, 11, 13}
 	fmt.Println(primes)
+
+	showEvenNums(primes)
+}
+
+func showEvenNums(s []int) {
+	for i := range s {
+		if s[i]%2 == 0 {
+			fmt.Println(s[i])
+		}
+	}
 }
