@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+//A pointer holds the memory address of a value.
+
 func main() {
 	i, j := 8, 10
 
