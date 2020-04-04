@@ -9,9 +9,13 @@ func main() {
 }
 
 func findMax() int {
-	nums := []int{4, 6, 1, 45, 11, 123, 0, 123, 11, 6}
 
-	nums[8] = 1233
+	// ann array with implicit size of 6
+	nums := []int{11, 123, 0, 123, 11, 6}
+
+	fmt.Println("The length of array is ", len(nums))
+
+	nums[2] = 1233
 
 	max := nums[0]
 
