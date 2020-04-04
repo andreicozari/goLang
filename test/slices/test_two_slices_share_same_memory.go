@@ -41,7 +41,7 @@ func intSlices() {
 	checkSameMemory(s2, s3)
 }
 
-func checkSameMemory(s1 []int, s2 []int) {
+func checkSameMemory(s1, s2 []int) {
 	if &s1 != &s2 {
 		fmt.Println("The slices are using different memory address. ")
 	} else {
@@ -49,7 +49,7 @@ func checkSameMemory(s1 []int, s2 []int) {
 	}
 }
 
-func checkSameMemoryString(s1 []string, s2 []string) {
+func checkSameMemoryString(s1, s2 []string) {
 	if &s1 != &s2 {
 		fmt.Println("The slices are using different memory address. ")
 	} else {
