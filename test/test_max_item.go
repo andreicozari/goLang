@@ -11,6 +11,8 @@ func main() {
 func findMax() int {
 	nums := []int{4, 6, 1, 45, 11, 123, 0, 123, 11, 6}
 
+	nums[8] = 1233
+
 	max := nums[0]
 
 	// _ omit the index from the range:
