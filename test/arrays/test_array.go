@@ -18,9 +18,9 @@ func main() {
 }
 
 func showEvenNums(s []int) {
-	for i := range s {
-		if s[i]%2 == 0 {
-			fmt.Println(s[i])
+	for _, val := range s {
+		if val%2 == 0 {
+			fmt.Println(val)
 		}
 	}
 }
