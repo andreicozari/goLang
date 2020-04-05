@@ -5,11 +5,18 @@ import (
 	"strings"
 )
 
-func main() {
-	manyWords := "aa bb aa cc aa bb aa"
-	fields := strings.Fields(manyWords)
-	strMap := make(map[string]int)
+var (
+	manyWords = "aa bb aa cc aa bb"
+	fields    = strings.Fields(manyWords)
+	strMap    = make(map[string]int)
+)
 
+func main() {
+	findWordFrequency()
+	findMostRepeatedWord()
+}
+
+func findWordFrequency() {
 	for _, word := range fields {
 		count, exists := strMap[word]
 
@@ -21,4 +28,18 @@ func main() {
 	}
 
 	fmt.Println(strMap)
+}
+
+func findMostRepeatedWord() {
+	max := 1
+	var word string
+
+	for k, count := range strMap {
+		if count > max {
+			max = count
+			word = k
+		}
+	}
+
+	fmt.Printf("Most repeated: %v : %v ", word, max)
 }
