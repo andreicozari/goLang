@@ -24,4 +24,6 @@ func main() {
 	i = "stringValue"
 	fmt.Println(i)
 
+	fmt.Print()
+
 }
