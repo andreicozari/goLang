@@ -24,6 +24,8 @@ func main() {
 	i = "stringValue"
 	fmt.Println(i)
 
+	// see the Print method that takes an array of empty interfaces
+	// this means that it accept any type
 	fmt.Print()
 
 }
