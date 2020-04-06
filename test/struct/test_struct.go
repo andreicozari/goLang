@@ -2,14 +2,14 @@ package main
 
 import "fmt"
 
-type Vertex struct {
+type Coordinate struct {
 	X, Y int
 }
 
 func main() {
-	fmt.Println(Vertex{1, 2})
+	fmt.Println(Coordinate{1, 2})
 
-	v := Vertex{3, 4}
+	v := Coordinate{3, 4}
 	fmt.Println(v)
 
 	// pointer to v:
