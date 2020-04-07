@@ -38,7 +38,7 @@ func main() {
 
 	// here is the correct doublePtr
 	n = 2
-	doublePtr(&n)
+	doublePtr(&n)  // pass a pointer
 	fmt.Println(n) // expect here n = 4 , which now is correct
 
 }
