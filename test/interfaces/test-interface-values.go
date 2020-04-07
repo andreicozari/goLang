@@ -22,6 +22,7 @@ type MyType struct {
 	S string
 }
 
+// implement the interface method M() :
 func (t *MyType) M() {
 	fmt.Println(t.S)
 }

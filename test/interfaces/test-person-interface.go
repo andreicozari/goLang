@@ -2,6 +2,10 @@ package main
 
 import "fmt"
 
+/* Interface is a collection of methods.
+   And each type that is implementing all methods from an interfaces,
+   is considering satisfying that interface
+*/
 type Person interface {
 	speak(text string)
 }
