@@ -16,15 +16,22 @@ func main() {
 	findMostRepeatedWord()
 }
 
+// Used in text search engines:
 func findWordFrequency() {
 	for _, word := range fields {
-		count, exists := strMap[word]
+		/*
+			count, exists := strMap[word]
 
-		if exists {
-			strMap[word] = count + 1
-		} else {
-			strMap[word] = 1
-		}
+			if exists {
+				strMap[word] = count + 1
+			} else {
+				strMap[word] = 1
+			}*/
+
+		// can be replaced with this line only:
+		// if such a entry by key does not exist then it returns 0 value:
+		strMap[word]++
+
 	}
 
 	fmt.Println(strMap)
