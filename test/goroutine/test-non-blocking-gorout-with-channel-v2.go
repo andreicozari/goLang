@@ -11,14 +11,15 @@ func main() {
 	// try with buffered chan:
 	strChan := make(chan string, 3)
 
-	go sendValToChan("A", strChan)
-	go sendValToChan("B", strChan)
-	go sendValToChan("C", strChan)
+	valuesToSend := []string{"A", "B", "C"}
 
-	receive(strChan)
-	receive(strChan)
-	receive(strChan)
+	for _, val := range valuesToSend {
+		go sendValToChan(val, strChan)
+	}
 
+	for i := 0; i < len(valuesToSend); i++ {
+		receive(strChan)
+	}
 }
 
 func sendValToChan(val string, strChan chan string) {

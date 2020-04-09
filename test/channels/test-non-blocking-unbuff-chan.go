@@ -20,13 +20,15 @@ func main() {
 func sendItemsToChan(nrOfItems int, intChan chan int) {
 	for i := 0; i < nrOfItems; i++ {
 		// wait / sleep one second:
-		time.Sleep(time.Second)
+		fmt.Printf("Sending  %d \n", i)
 		intChan <- i
+		time.Sleep(3 * time.Second)
 	}
 }
 
 func readItemsFromChan(nrOfItems int, intChan chan int) {
 	for i := 0; i < nrOfItems; i++ {
-		fmt.Println(<-intChan)
+		<-intChan
+		fmt.Printf("Received  %d \n", i)
 	}
 }
