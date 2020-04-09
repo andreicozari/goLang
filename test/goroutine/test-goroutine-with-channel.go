@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
 func main() {
@@ -12,18 +13,14 @@ func main() {
 
 	go sendABC(strChan)
 
-	fmt.Println("\n Received ", <-strChan)
-	fmt.Println("\n Received ", <-strChan)
+	waitOneSec()
 	fmt.Println("\n Received ", <-strChan)
 
-	/*for ; ; {
-		fmt.Println("\n Received ",  <- strChan)
+	waitOneSec()
+	fmt.Println("\n Received ", <-strChan)
 
-		for _, r := range `12345` {
-			fmt.Printf("\r%c", r)
-			time.Sleep(1000 * time.Millisecond)
-		}
-	}*/
+	waitOneSec()
+	fmt.Println("\n Received ", <-strChan)
 }
 
 func sendABC(strChan chan string) {
@@ -42,4 +39,11 @@ func sendABC(strChan chan string) {
 	strChan <- "c"
 	fmt.Println("\n sent c")
 	//time.Sleep(500 * time.Millisecond)
+}
+
+func waitOneSec() {
+	for _, r := range `123` {
+		time.Sleep(500 * time.Millisecond)
+		fmt.Printf("\r%c", r)
+	}
 }
