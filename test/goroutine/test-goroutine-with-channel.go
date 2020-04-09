@@ -5,12 +5,12 @@ import (
 )
 
 func main() {
-	strChan := make(chan string)
+	//strChan := make(chan string)
 
 	// try with buffered chan:
-	//strChan := make(chan string, 3)
+	strChan := make(chan string, 3)
 
-	go abc(strChan)
+	go sendABC(strChan)
 
 	fmt.Println("\n Received ", <-strChan)
 	fmt.Println("\n Received ", <-strChan)
@@ -26,7 +26,7 @@ func main() {
 	}*/
 }
 
-func abc(strChan chan string) {
+func sendABC(strChan chan string) {
 
 	fmt.Println("\n sending a")
 	strChan <- "a"
