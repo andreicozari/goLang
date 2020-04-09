@@ -5,32 +5,46 @@ import (
 	"time"
 )
 
+type Word struct {
+	val    string
+	length int
+}
+
+func NewWord(val string) Word {
+	return Word{val: val}
+}
+
+func (word Word) String() string {
+	return fmt.Sprintf("{%v, %v}", word.val, word.length)
+}
+
 func main() {
 	//strChan := make(chan string)
 
 	// try with buffered chan:
-	strChan := make(chan string, 3)
+	wordsChan := make(chan Word, 3)
 
-	valuesToSend := []string{"A", "B", "C"}
+	valuesToSend := []Word{NewWord("One"), NewWord("Three"), NewWord("Four")}
 
 	for _, val := range valuesToSend {
-		go sendValToChan(val, strChan)
+		go sendValToChan(val, wordsChan)
 	}
 
 	for i := 0; i < len(valuesToSend); i++ {
-		receive(strChan)
+		receive(wordsChan)
 	}
 }
 
-func sendValToChan(val string, strChan chan string) {
-	fmt.Println("\n sending ", val)
-	time.Sleep(2 * time.Second)
-	strChan <- val
+func sendValToChan(word Word, wordsChan chan Word) {
+	word.length = len(word.val)
+	fmt.Println("\n sending ", word)
+	time.Sleep(time.Second)
+	wordsChan <- word
 
 	// the next line will be executed concurrently with the receiver
-	fmt.Println("\n sent ", val)
+	fmt.Println("\n sent ", word)
 }
 
-func receive(strChan chan string) {
-	fmt.Println("Received ", <-strChan)
+func receive(wordsChan chan Word) {
+	fmt.Println("Received ", <-wordsChan)
 }
