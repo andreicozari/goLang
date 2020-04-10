@@ -17,7 +17,7 @@ func main() {
 
 func push(ch chan interface{}) {
 	for i := 0; i < cap(ch); i++ {
-		// the select is used the operation over the channels:
+		// the select is used to listen the operation over the channels:
 		// only one case will be chosen at a time/ like switch operation:
 		select {
 		case ch <- "a":
