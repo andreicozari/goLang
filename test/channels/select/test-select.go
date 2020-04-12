@@ -19,9 +19,12 @@ func (word Word) String() string {
 }
 
 func main() {
+	// unbuffered channel for making goroutines synchronized
 	//strChan := make(chan string)
 
 	// try with buffered chan:
+	// non blocking to send first 3 items, regardless if there is any receiver to read the items
+	// on the fourth send --> the GoR will block
 	wordsChan := make(chan Word, 3)
 
 	valuesToSend := []Word{NewWord("One"), NewWord("Three"), NewWord("Four")}
@@ -39,7 +42,11 @@ func main() {
 
 	// we use select statement:
 	// select can listen for data incoming in channel:
-	select {}
+	// While our goroutines were running concurrently, they were not running in parallel --> GOMAXPROCS nr of CPU
+	select {
+	case word := <-wordsChan:
+		fmt.Println("Received ", word)
+	}
 }
 
 func sendValToChan(word Word, wordsChan chan Word) {

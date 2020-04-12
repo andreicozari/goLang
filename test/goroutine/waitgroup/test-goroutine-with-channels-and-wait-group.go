@@ -15,7 +15,7 @@ func main() {
 
 	go sendABC(strChan)
 
-	for i := 0; i < 3; i++ {
+	for i := 1; i <= 3; i++ {
 		receive(strChan)
 	}
 
@@ -39,6 +39,7 @@ func sendABC(strChan chan string) {
 	//time.Sleep(500 * time.Millisecond)
 }
 
+// the receiver:
 func receive(strChan chan string) {
 	wg.Add(1)
 	go func() {

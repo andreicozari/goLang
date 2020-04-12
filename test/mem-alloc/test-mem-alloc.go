@@ -29,6 +29,7 @@ func main() {
 	var c <-chan interface{}
 
 	var wg sync.WaitGroup
+
 	noop := func() { wg.Done(); <-c }
 	const numGoroutines = 1e4
 	wg.Add(numGoroutines)

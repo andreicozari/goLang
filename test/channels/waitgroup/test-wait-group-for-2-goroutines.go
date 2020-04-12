@@ -17,17 +17,17 @@ func main() {
 	//		tell to main goR that there is no need to wait any more for the goR to run
 	// Instead of calling directly the go showNTimesAWord , we will use a go call to a closure
 	//  for handling the WaitGroup counter decrement
+	/*go func() {
+		// only when the goR is done --> do with defer --> decrement wg counter with:
+		defer waitGroupCounter.Done()
+		showNTimesAWord(2, "Apple", ch)
+
+	}()*/
 
 	// use channels:
-
 	ch := make(chan interface{})
 	go showNTimesAWord(2, "Apple", ch)
-
-	/*go func() {
-		showNTimesAWord(2, "Apple", ch)
-		// decrement wg counter:
-		waitGroupCounter.Done()
-	}()*/
+	go showNTimesAWord(2, "Banana", ch)
 
 	// the main goR is the receiver
 	// As a receiver you should never close the channel because you don't know if there are still values in channel
@@ -39,7 +39,6 @@ func main() {
 			fmt.Println("The channel was closed by the sender. There are no more items to receive.")
 			break
 		}
-
 	}
 
 	//go showNTimesAWord(3, "Banana")
